@@ -6,7 +6,6 @@ import {
   Link,
   Divider,
 } from '@mui/material';
-import SpaIcon from '@mui/icons-material/Spa';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 

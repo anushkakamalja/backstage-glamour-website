@@ -6,7 +6,6 @@ import {
   Card,
   CardContent,
 } from '@mui/material';
-import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 
 interface GalleryItem {
   title: string;

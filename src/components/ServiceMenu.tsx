@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Box,
   Typography,
-  Grid,
 } from '@mui/material';
 
 interface MenuItem {

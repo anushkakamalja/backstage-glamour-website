@@ -3,10 +3,7 @@ import {
   Box,
   Typography,
   Grid,
-  Card,
-  Avatar,
 } from '@mui/material';
-import PersonIcon from '@mui/icons-material/Person';
 
 const AboutMe: React.FC = () => {
   return (

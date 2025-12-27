@@ -13,7 +13,6 @@ import {
   Box,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import SpaIcon from '@mui/icons-material/Spa';
 
 const Header: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);

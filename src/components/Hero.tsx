@@ -4,10 +4,7 @@ import {
   Typography,
   Button,
   Grid,
-  Card,
-  CardContent,
 } from '@mui/material';
-import SpaIcon from '@mui/icons-material/Spa';
 
 const Hero: React.FC = () => {
   const scrollToSection = (href: string) => {
