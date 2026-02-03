@@ -16,7 +16,7 @@ const ServiceGallery: React.FC = () => {
   const items: GalleryItem[] = [
     { 
       title: 'Lash Extensions', 
-      image: '/images/lash_ext.jpeg' 
+      image: '/images/lash_ext.png' 
     },
     { 
       title: 'Brow Lamination', 
@@ -24,7 +24,7 @@ const ServiceGallery: React.FC = () => {
     },
     { 
       title: 'Chemical Peels', 
-      image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=800' 
+      image: '/images/chemical_peels.png' 
     },
     { 
       title: 'Microcurrent Toning', 

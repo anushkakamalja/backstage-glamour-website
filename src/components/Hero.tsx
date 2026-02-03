@@ -29,10 +29,18 @@ const Hero: React.FC = () => {
     >
       <Grid container spacing={4} sx={{ alignItems: 'center' }}>
         <Grid size={{ xs: 12, md: 6 }}>
-          <Typography variant="h1" component="h1" gutterBottom sx={{ display: 'flex', flexDirection: 'column' }}>
-            <Box component="span" sx={{ fontSize: '0.5em', textTransform: 'uppercase', letterSpacing: '4px', fontWeight: 400 }}>Backstage</Box>
-            <Box component="span" sx={{ fontFamily: '"La Belle Aurore", cursive', mt: -2, mb: 1 }}>Glamour</Box>
-          </Typography>
+          <Box
+            component="img"
+            src="/images/logo.png"
+            alt="Backstage Glamour Beauty Studio Est. 2014"
+            sx={{
+              maxWidth: '100%',
+              width: 320,
+              height: 'auto',
+              mb: 3,
+              display: 'block',
+            }}
+          />
           <Typography
             variant="h6"
             component="p"
@@ -75,15 +83,14 @@ const Hero: React.FC = () => {
           >
             <Box
               component="img"
-              src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=800"
-              alt="Backstage Glamour Studio"
+              src="/images/hero.png"
+              alt="Backstage Glamour makeup artistry"
               sx={{
                 width: '100%',
                 maxWidth: 500,
                 height: 500,
                 objectFit: 'cover',
                 border: '1px solid #e5e5e5',
-                filter: 'grayscale(100%)',
               }}
             />
           </Box>
