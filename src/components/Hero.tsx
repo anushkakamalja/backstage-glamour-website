@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
             Experience luxury beauty treatments in a serene, professional environment.
             Our expert stylists use premium products to enhance your natural beauty.
           </Typography>
-          <Box>
+          <Box className="heroButtons">
             <Button
               variant="outlined"
               size="large"

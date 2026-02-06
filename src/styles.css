@@ -68,6 +68,15 @@
   color: black;
   padding-top: 64px;
   padding-bottom: 64px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (min-width: 600px) {
+  .heroSection {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
 }
 
 .heroLogo {
@@ -83,6 +92,10 @@
   margin-bottom: 32px;
   font-size: 1.2rem;
   line-height: 1.6;
+}
+
+.heroButtons {
+  margin-top: 32px;
 }
 
 .heroCtaWrap {
