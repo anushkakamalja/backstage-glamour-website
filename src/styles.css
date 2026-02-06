@@ -282,6 +282,7 @@
 .referralButton.MuiButton-outlined {
   border-color: #fff !important;
   color: #fff !important;
+  margin-top: 16px;
 }
 
 .referralButton.MuiButton-outlined:hover {
@@ -299,9 +300,8 @@
 }
 
 .contactIntro {
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  text-align: center;
 }
 
 .contactInfoItem {
