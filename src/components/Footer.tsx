@@ -80,9 +80,18 @@ const Footer: React.FC = () => {
               Contact Info
             </Typography>
             <Box className="footerLinks">
-              <Typography variant="body2" className="footerText">📍 123 Beauty Avenue</Typography>
-              <Typography variant="body2" className="footerText">📞 (555) 123-4567</Typography>
-              <Typography variant="body2" className="footerText">✉️ hello@backstageglamour.com</Typography>
+              <Link
+                href="https://www.google.com/maps/search/?api=1&query=311+Miller+Ave+Suite+H-1+Mill+Valley+CA+94941"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="body2"
+                className="footerLink"
+                sx={{ display: 'block' }}
+              >
+                📍 311 Miller Ave, Suite H-1, Mill Valley, CA 94941
+              </Link>
+              <Typography variant="body2" className="footerText">📞 (650) 425-0858</Typography>
+              <Typography variant="body2" className="footerText">✉️ backstageglamour@gmail.com</Typography>
               <Typography variant="body2" className="footerText">🕒 Mon-Fri: 9AM-7PM</Typography>
             </Box>
           </Grid>

@@ -10,8 +10,8 @@ const AboutMe: React.FC = () => {
             <Box className="aboutImageWrapper">
               <Box
                 component="img"
-                src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&q=80&w=800"
-                alt="Artist Portrait"
+                src="/images/about-portrait.png"
+                alt="Audra – Backstage Glamour Beauty Studio"
                 className="aboutImage"
               />
             </Box>

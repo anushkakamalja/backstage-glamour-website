@@ -9,16 +9,20 @@ import {
   Button,
   MenuItem,
   Alert,
+  Link,
 } from '@mui/material';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
+const MAPS_URL = 'https://www.google.com/maps/search/?api=1&query=311+Miller+Ave+Suite+H-1+Mill+Valley+CA+94941';
+
 interface ContactInfo {
   icon: React.ReactNode;
   title: string;
   content: string;
+  link?: string;
 }
 
 const Contact: React.FC = () => {
@@ -35,17 +39,18 @@ const Contact: React.FC = () => {
     {
       icon: <LocationOnIcon sx={{ color: '#666' }} />,
       title: 'Location',
-      content: '123 Beauty Avenue\nSan Francisco, CA 94102',
+      content: '311 Miller Ave\nSuite H-1\nMill Valley, CA 94941',
+      link: MAPS_URL,
     },
     {
       icon: <PhoneIcon sx={{ color: '#666' }} />,
       title: 'Phone',
-      content: '(555) 123-4567',
+      content: '(650) 425-0858',
     },
     {
       icon: <EmailIcon sx={{ color: '#666' }} />,
       title: 'Email',
-      content: 'hello@glowbeautystudio.com',
+      content: 'backstageglamour@gmail.com',
     },
     {
       icon: <AccessTimeIcon sx={{ color: '#666' }} />,
@@ -133,9 +138,23 @@ const Contact: React.FC = () => {
                     <Typography variant="h6" component="h4" gutterBottom>
                       {info.title}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary" className="contactInfoContent">
-                      {info.content}
-                    </Typography>
+                    {info.link ? (
+                      <Link
+                        href={info.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        variant="body2"
+                        color="text.secondary"
+                        className="contactInfoContent"
+                        sx={{ whiteSpace: 'pre-line', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                      >
+                        {info.content}
+                      </Link>
+                    ) : (
+                      <Typography variant="body2" color="text.secondary" className="contactInfoContent">
+                        {info.content}
+                      </Typography>
+                    )}
                   </Box>
                 </Box>
               ))}

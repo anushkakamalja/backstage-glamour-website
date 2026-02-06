@@ -133,11 +133,10 @@
 }
 
 .aboutImage {
-  width: 300px;
-  height: 400px;
-  object-fit: cover;
-  border: 1px solid #e5e5e5;
-  filter: grayscale(100%);
+  max-width: 100%;
+  width: 400px;
+  height: 500px;
+  object-fit: contain;
 }
 
 .aboutLabel {
@@ -341,12 +340,23 @@
   padding-bottom: 48px;
 }
 
+/* Override MUI theme so footer text is visible on black background */
+.footerSection .MuiTypography-root {
+  color: inherit;
+}
+.footerSection .MuiLink-root {
+  color: #999;
+}
+.footerSection .MuiLink-root:hover {
+  color: #fff;
+}
+
 .footerBrand {
   margin-bottom: 24px;
 }
 
 .footerBrandMain {
-  color: #fff;
+  color: #fff !important;
   font-weight: normal;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -354,7 +364,7 @@
 }
 
 .footerBrandGlamour {
-  color: #fff;
+  color: #fff !important;
   font-family: "La Belle Aurore", cursive;
   font-size: 1.5rem;
   margin-top: -8px;
@@ -363,24 +373,26 @@
 .footerTagline {
   margin-bottom: 24px;
   line-height: 1.6;
+  color: #999 !important;
 }
 
 .footerSocialWrap {
   display: flex;
   gap: 16px;
+  padding-top: 16px;
 }
 
 .footerSocialIcon {
-  color: #999;
+  color: #999 !important;
   cursor: pointer;
 }
 
 .footerSocialIcon:hover {
-  color: #fff;
+  color: #fff !important;
 }
 
 .footerColumnTitle {
-  color: #fff;
+  color: #fff !important;
   margin-bottom: 24px;
 }
 
@@ -391,17 +403,17 @@
 }
 
 .footerLink {
-  color: #999;
+  color: #999 !important;
   text-decoration: none;
   text-align: left;
 }
 
 .footerLink:hover {
-  color: #fff;
+  color: #fff !important;
 }
 
 .footerText {
-  color: #999;
+  color: #999 !important;
 }
 
 .footerDivider {
@@ -414,5 +426,10 @@
 
 .footerCopyright {
   text-align: center;
-  color: #999;
+  color: #999 !important;
+  padding-top: 24px;
+}
+
+.footerCopyright .MuiTypography-root {
+  color: #999 !important;
 }
