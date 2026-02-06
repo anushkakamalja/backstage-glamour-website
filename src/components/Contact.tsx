@@ -106,25 +106,19 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <Box
-      id="contact"
-      sx={{
-        py: 10,
-        backgroundColor: '#f9f9f9',
-      }}
-    >
-      <Box sx={{ maxWidth: 1200, mx: 'auto', px: 3 }}>
-        <Box sx={{ textAlign: 'center', mb: 6 }}>
+    <Box id="contact" className="contactSection">
+      <Box className="container">
+        <Box className="sectionHeaderSmall">
           <Typography variant="h2" component="h2" gutterBottom>
             Get In Touch
           </Typography>
-          <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto' }}>
+          <Typography variant="body1" color="text.secondary" className="contactIntro">
             Ready to glow? Contact us today to schedule your appointment or ask any questions.
           </Typography>
         </Box>
 
         {showAlert && (
-          <Alert severity="success" sx={{ mb: 4, maxWidth: 600, mx: 'auto' }}>
+          <Alert severity="success" className="contactAlert">
             Thank you for your message! We'll get back to you soon.
           </Alert>
         )}
@@ -133,15 +127,13 @@ const Contact: React.FC = () => {
           <Grid size={{ xs: 12, md: 6 }}>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
               {contactInfo.map((info, index) => (
-                <Box key={index} sx={{ display: 'flex', alignItems: 'flex-start', gap: 3 }}>
-                  <Box sx={{ mt: 0.5 }}>
-                    {info.icon}
-                  </Box>
+                <Box key={index} className="contactInfoItem">
+                  <Box sx={{ mt: 0.5 }}>{info.icon}</Box>
                   <Box>
                     <Typography variant="h6" component="h4" gutterBottom>
                       {info.title}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary" sx={{ whiteSpace: 'pre-line' }}>
+                    <Typography variant="body2" color="text.secondary" className="contactInfoContent">
                       {info.content}
                     </Typography>
                   </Box>
@@ -152,8 +144,8 @@ const Contact: React.FC = () => {
 
           <Grid size={{ xs: 12, md: 6 }}>
             <Card>
-              <CardContent sx={{ p: 4 }}>
-                <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+              <CardContent className="contactFormCard">
+                <Box component="form" onSubmit={handleSubmit} className="contactForm">
                   <TextField
                     fullWidth
                     label="Your Name"

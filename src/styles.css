@@ -1,0 +1,418 @@
+/*
+ * Backstage Glamour – shared styles
+ * Use component-prefixed class names to avoid conflicts.
+ */
+
+/* ========== Shared section layout ========== */
+
+.section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.sectionWhite {
+  background-color: white;
+}
+
+.sectionGray {
+  background-color: #f9f9f9;
+}
+
+.sectionBlack {
+  background-color: #000;
+  color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.containerNarrow {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.sectionHeaderSmall {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.sectionLabel {
+  letter-spacing: 2px;
+  color: #999;
+}
+
+.sectionTitle {
+  margin-top: 8px;
+}
+
+/* ========== Hero ========== */
+
+.heroSection {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  color: black;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.heroLogo {
+  max-width: 100%;
+  width: 320px;
+  height: auto;
+  margin-bottom: 24px;
+  display: block;
+}
+
+.heroTagline {
+  color: #666;
+  margin-bottom: 32px;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.heroCtaWrap {
+  margin-right: 16px;
+  margin-bottom: 16px;
+}
+
+.heroImageWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroImage {
+  width: 100%;
+  max-width: 500px;
+  height: 500px;
+  object-fit: cover;
+  border: 1px solid #e5e5e5;
+}
+
+/* ========== About Me ========== */
+
+.aboutSection {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background-color: white;
+}
+
+.aboutInner {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.aboutImageWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 900px) {
+  .aboutImageWrapper {
+    margin-bottom: 0;
+  }
+}
+
+.aboutImage {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  border: 1px solid #e5e5e5;
+  filter: grayscale(100%);
+}
+
+.aboutLabel {
+  letter-spacing: 2px;
+  color: #999;
+}
+
+.aboutTitle {
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.aboutParagraph {
+  margin-bottom: 24px;
+  line-height: 1.8;
+}
+
+.aboutParagraph:last-of-type {
+  margin-bottom: 0;
+}
+
+.aboutBioHighlight {
+  font-weight: 700;
+}
+
+/* ========== Service Menu ========== */
+
+.menuSection {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background-color: white;
+}
+
+.menuCategory {
+  margin-bottom: 48px;
+}
+
+.menuCategoryTitle {
+  margin-bottom: 24px;
+  border-bottom: 1px solid #000;
+  padding-bottom: 8px;
+  display: inline-block;
+}
+
+.menuItemWrap {
+  margin-top: 16px;
+}
+
+.menuItem {
+  margin-bottom: 24px;
+}
+
+.menuItemRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.menuItemName {
+  font-weight: 500;
+}
+
+.menuItemPrice {
+  font-weight: 600;
+}
+
+/* ========== Gallery ========== */
+
+.gallerySection {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background-color: #f9f9f9;
+}
+
+.galleryCard {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.galleryImage {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.galleryCard:hover .galleryImage {
+  filter: grayscale(0%);
+}
+
+.galleryCardContent {
+  text-align: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+/* ========== Referral ========== */
+
+.referralSection {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background-color: #000 !important;
+  color: #fff;
+}
+
+.referralCard {
+  background-color: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0;
+  text-align: center;
+  padding: 32px;
+}
+
+.referralIcon {
+  font-size: 60px;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.referralTitle {
+  color: #fff;
+}
+
+.referralSubtitle {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 32px;
+  font-weight: 400;
+}
+
+.referralBody {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 32px;
+  line-height: 1.8;
+}
+
+.referralHighlight {
+  color: #fff;
+  font-weight: 700;
+}
+
+.referralButton.MuiButton-outlined {
+  border-color: #fff !important;
+  color: #fff !important;
+}
+
+.referralButton.MuiButton-outlined:hover {
+  background-color: #fff !important;
+  color: #000 !important;
+  border-color: #fff !important;
+}
+
+/* ========== Contact ========== */
+
+.contactSection {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background-color: #f9f9f9;
+}
+
+.contactIntro {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contactInfoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.contactInfoContent {
+  white-space: pre-line;
+}
+
+.contactFormCard {
+  padding: 32px;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contactAlert {
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ========== Footer ========== */
+
+.footerSection {
+  background-color: #000;
+  color: #999;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.footerBrand {
+  margin-bottom: 24px;
+}
+
+.footerBrandMain {
+  color: #fff;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+}
+
+.footerBrandGlamour {
+  color: #fff;
+  font-family: "La Belle Aurore", cursive;
+  font-size: 1.5rem;
+  margin-top: -8px;
+}
+
+.footerTagline {
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.footerSocialWrap {
+  display: flex;
+  gap: 16px;
+}
+
+.footerSocialIcon {
+  color: #999;
+  cursor: pointer;
+}
+
+.footerSocialIcon:hover {
+  color: #fff;
+}
+
+.footerColumnTitle {
+  color: #fff;
+  margin-bottom: 24px;
+}
+
+.footerLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footerLink {
+  color: #999;
+  text-decoration: none;
+  text-align: left;
+}
+
+.footerLink:hover {
+  color: #fff;
+}
+
+.footerText {
+  color: #999;
+}
+
+.footerDivider {
+  margin-top: 32px;
+  margin-bottom: 32px;
+  border: none;
+  border-top: 1px solid #333;
+  background: none;
+}
+
+.footerCopyright {
+  text-align: center;
+  color: #999;
+}

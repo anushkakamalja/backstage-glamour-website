@@ -15,42 +15,16 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <Box
-      id="home"
-      sx={{
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        backgroundColor: 'white',
-        color: 'black',
-        pt: 8,
-        pb: 8,
-      }}
-    >
+    <Box id="home" className="heroSection">
       <Grid container spacing={4} sx={{ alignItems: 'center' }}>
         <Grid size={{ xs: 12, md: 6 }}>
           <Box
             component="img"
             src="/images/logo.png"
             alt="Backstage Glamour Beauty Studio Est. 2014"
-            sx={{
-              maxWidth: '100%',
-              width: 320,
-              height: 'auto',
-              mb: 3,
-              display: 'block',
-            }}
+            className="heroLogo"
           />
-          <Typography
-            variant="h6"
-            component="p"
-            sx={{
-              color: '#666',
-              mb: 4,
-              fontSize: '1.2rem',
-              lineHeight: 1.6,
-            }}
-          >
+          <Typography variant="h6" component="p" className="heroTagline">
             Experience luxury beauty treatments in a serene, professional environment.
             Our expert stylists use premium products to enhance your natural beauty.
           </Typography>
@@ -74,24 +48,12 @@ const Hero: React.FC = () => {
           </Box>
         </Grid>
         <Grid size={{ xs: 12, md: 6 }}>
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
+          <Box className="heroImageWrap">
             <Box
               component="img"
               src="/images/hero.png"
               alt="Backstage Glamour makeup artistry"
-              sx={{
-                width: '100%',
-                maxWidth: 500,
-                height: 500,
-                objectFit: 'cover',
-                border: '1px solid #e5e5e5',
-              }}
+              className="heroImage"
             />
           </Box>
         </Grid>

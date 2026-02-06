@@ -81,36 +81,30 @@ const ServiceMenu: React.FC = () => {
   ];
 
   return (
-    <Box
-      id="menu"
-      sx={{
-        py: 10,
-        backgroundColor: 'white',
-      }}
-    >
-      <Box sx={{ maxWidth: 800, mx: 'auto', px: 3 }}>
-        <Box sx={{ textAlign: 'center', mb: 8 }}>
-          <Typography variant="overline" sx={{ letterSpacing: 2, color: '#999' }}>
+    <Box id="menu" className="menuSection">
+      <Box className="containerNarrow">
+        <Box className="sectionHeader">
+          <Typography variant="overline" className="sectionLabel">
             Offerings
           </Typography>
-          <Typography variant="h2" component="h2" sx={{ mt: 1 }}>
+          <Typography variant="h2" component="h2" className="sectionTitle">
             Service Menu
           </Typography>
         </Box>
 
         {menu.map((category) => (
-          <Box key={category.category} sx={{ mb: 6 }}>
-            <Typography variant="h4" sx={{ mb: 3, borderBottom: '1px solid #000', pb: 1, display: 'inline-block' }}>
+          <Box key={category.category} className="menuCategory">
+            <Typography variant="h4" className="menuCategoryTitle">
               {category.category}
             </Typography>
-            <Box sx={{ mt: 2 }}>
+            <Box className="menuItemWrap">
               {category.items.map((item) => (
-                <Box key={item.name} sx={{ mb: 3 }}>
-                  <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-                    <Typography variant="h6" sx={{ fontWeight: 500 }}>
+                <Box key={item.name} className="menuItem">
+                  <Box className="menuItemRow">
+                    <Typography variant="h6" className="menuItemName">
                       {item.name}
                     </Typography>
-                    <Typography variant="body1" sx={{ fontWeight: 600 }}>
+                    <Typography variant="body1" className="menuItemPrice">
                       {item.price}
                     </Typography>
                   </Box>

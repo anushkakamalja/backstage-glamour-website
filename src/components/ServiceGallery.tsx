@@ -37,19 +37,13 @@ const ServiceGallery: React.FC = () => {
   ];
 
   return (
-    <Box
-      id="gallery"
-      sx={{
-        py: 10,
-        backgroundColor: '#f9f9f9',
-      }}
-    >
-      <Box sx={{ maxWidth: 1200, mx: 'auto', px: 3 }}>
-        <Box sx={{ textAlign: 'center', mb: 8 }}>
-          <Typography variant="overline" sx={{ letterSpacing: 2, color: '#999' }}>
+    <Box id="gallery" className="gallerySection">
+      <Box className="container">
+        <Box className="sectionHeader">
+          <Typography variant="overline" className="sectionLabel">
             Portfolio
           </Typography>
-          <Typography variant="h2" component="h2" sx={{ mt: 1 }}>
+          <Typography variant="h2" component="h2" className="sectionTitle">
             Our Work
           </Typography>
         </Box>
@@ -57,23 +51,14 @@ const ServiceGallery: React.FC = () => {
         <Grid container spacing={4}>
           {items.map((item, index) => (
             <Grid size={{ xs: 12, sm: 6, md: index < 2 ? 6 : 4 }} key={item.title}>
-              <Card sx={{ height: '100%', position: 'relative', overflow: 'hidden' }}>
+              <Card className="galleryCard">
                 <Box
                   component="img"
                   src={item.image}
                   alt={item.title}
-                  sx={{
-                    width: '100%',
-                    height: 350,
-                    objectFit: 'cover',
-                    filter: 'grayscale(100%)',
-                    transition: 'filter 0.3s ease',
-                    '&:hover': {
-                      filter: 'grayscale(0%)',
-                    },
-                  }}
+                  className="galleryImage"
                 />
-                <CardContent sx={{ textAlign: 'center', py: 2 }}>
+                <CardContent className="galleryCardContent">
                   <Typography variant="h6" component="h3">
                     {item.title}
                   </Typography>

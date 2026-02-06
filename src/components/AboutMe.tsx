@@ -1,52 +1,36 @@
 import React from 'react';
-import {
-  Box,
-  Typography,
-  Grid,
-} from '@mui/material';
+import { Box, Typography, Grid } from '@mui/material';
 
 const AboutMe: React.FC = () => {
   return (
-    <Box
-      id="about"
-      sx={{
-        py: 10,
-        backgroundColor: 'white',
-      }}
-    >
-      <Box sx={{ maxWidth: 1200, mx: 'auto', px: 3 }}>
+    <Box id="about" className="aboutSection">
+      <Box className="aboutInner">
         <Grid container spacing={6} alignItems="center">
           <Grid size={{ xs: 12, md: 6 }}>
-            <Box sx={{ display: 'flex', justifyContent: 'center', mb: { xs: 4, md: 0 } }}>
+            <Box className="aboutImageWrapper">
               <Box
                 component="img"
                 src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&q=80&w=800"
                 alt="Artist Portrait"
-                sx={{
-                  width: 300,
-                  height: 400,
-                  objectFit: 'cover',
-                  border: '1px solid #e5e5e5',
-                  filter: 'grayscale(100%)',
-                }}
+                className="aboutImage"
               />
             </Box>
           </Grid>
           <Grid size={{ xs: 12, md: 6 }}>
-            <Typography variant="overline" sx={{ letterSpacing: 2, color: '#999' }}>
+            <Typography variant="overline" className="aboutLabel">
               The Artist
             </Typography>
-            <Typography variant="h2" component="h2" gutterBottom sx={{ mt: 1 }}>
+            <Typography variant="h2" component="h2" gutterBottom className="aboutTitle">
               About Me
             </Typography>
-            <Typography variant="body1" color="text.secondary" sx={{ mb: 3, lineHeight: 1.8 }}>
-              Hi, I'm [Your Name], the founder and lead esthetician at Backstage Glamour. Established in 2014, my passion is helping clients feel confident and radiant in their own skin.
+            <Typography variant="body1" color="text.secondary" className="aboutParagraph">
+              Hi, I'm <span className="aboutBioHighlight">Audra</span>, and beauty has been my passion for as long as I can remember.
             </Typography>
-            <Typography variant="body1" color="text.secondary" sx={{ mb: 3, lineHeight: 1.8 }}>
-              I specialize in advanced skin treatments and precision lash artistry. My approach combines clinical expertise with a gentle, personalized touch to ensure every client leaves feeling refreshed and beautiful.
+            <Typography variant="body1" color="text.secondary" className="aboutParagraph">
+              With over <span className="aboutBioHighlight">25 years</span> in the industry, I've worked as a <span className="aboutBioHighlight">celebrity makeup artist</span>, taught future estheticians, and spent <span className="aboutBioHighlight">22+ years</span> perfecting lashes. I'm also the co-founder of <span className="aboutBioHighlight">ButterSky Beauty</span>, a clean cosmetics line created to make beauty feel effortless and fun.
             </Typography>
-            <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.8 }}>
-              Continuous education is at the core of my practice. I stay updated with the latest techniques in chemical peels, high frequency therapy, and lash enhancements to provide you with the best results possible.
+            <Typography variant="body1" color="text.secondary" className="aboutParagraph">
+              What matters most to me is how my clients feel — confident, relaxed, and glowing from the inside out. Every service I offer is rooted in care, connection, and the belief that beauty isn't about perfection… it's about feeling amazing in your own skin.
             </Typography>
           </Grid>
         </Grid>
