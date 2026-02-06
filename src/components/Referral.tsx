@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Typography,
   Card,
   CardContent,
   Button,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  IconButton,
 } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 
 const Referral: React.FC = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <Box id="referral" className="referralSection">
       <Box className="containerNarrow">
@@ -22,14 +30,64 @@ const Referral: React.FC = () => {
               Share the glow and get rewarded.
             </Typography>
             <Typography variant="body1" className="referralBody">
-              Invite a friend to Backstage Glamour and you'll both receive <Box component="span" className="referralHighlight">$20 OFF</Box> your next service! It's our way of saying thank you for being a part of our community.
+              Clients and their referrals will receive <Box component="span" className="referralHighlight">$25 off</Box> any service over $50.
             </Typography>
-            <Button variant="outlined" size="large" className="referralButton">
+            <Button
+              variant="outlined"
+              size="large"
+              className="referralButton"
+              onClick={() => setModalOpen(true)}
+            >
               Learn More
             </Button>
           </CardContent>
         </Card>
       </Box>
+
+      <Dialog
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        maxWidth="sm"
+        fullWidth
+        PaperProps={{
+          sx: {
+            borderRadius: 0,
+            padding: 1,
+          },
+        }}
+      >
+        <DialogTitle sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', pr: 6 }}>
+          How it works
+          <IconButton
+            aria-label="close"
+            onClick={() => setModalOpen(false)}
+            sx={{ position: 'absolute', right: 8, top: 8 }}
+          >
+            <CloseIcon />
+          </IconButton>
+        </DialogTitle>
+        <DialogContent>
+          <Box component="ol" sx={{ pl: 2.5, m: 0, '& li': { mb: 1.5 } }}>
+            <Typography component="li" variant="body1">
+              Share your name with a friend who’s new to Backstage Glamour.
+            </Typography>
+            <Typography component="li" variant="body1">
+              When they book any service over $50 and mention you, they receive <strong>$25 off</strong>.
+            </Typography>
+            <Typography component="li" variant="body1">
+              You receive <strong>$25 off</strong> your next service over $50 as a thank-you.
+            </Typography>
+          </Box>
+          <Typography variant="body2" color="text.secondary" sx={{ mt: 2 }}>
+            Have questions? Reach out when you book or contact us—we’re happy to help.
+          </Typography>
+        </DialogContent>
+        <DialogActions sx={{ px: 3, pb: 2 }}>
+          <Button onClick={() => setModalOpen(false)} variant="contained">
+            Got it
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 };
