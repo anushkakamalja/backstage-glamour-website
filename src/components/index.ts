@@ -4,5 +4,6 @@ export { default as AboutMe } from './AboutMe';
 export { default as ServiceGallery } from './ServiceGallery';
 export { default as ServiceMenu } from './ServiceMenu';
 export { default as Referral } from './Referral';
+export { default as Feedback } from './Feedback';
 export { default as Contact } from './Contact';
 export { default as Footer } from './Footer';

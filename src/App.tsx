@@ -3,7 +3,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Box } from '@mui/material';
 import { theme } from './theme';
-import { Header, Hero, ServiceMenu, AboutMe, ServiceGallery, Referral, Contact, Footer } from './components';
+import { Header, Hero, ServiceMenu, AboutMe, ServiceGallery, Referral, Feedback, Contact, Footer } from './components';
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
         <AboutMe />
         <ServiceGallery />
         <Referral />
+        <Feedback />
         <Contact />
         <Footer />
       </Box>

@@ -298,6 +298,50 @@
   border-color: #fff !important;
 }
 
+/* ========== Feedback ========== */
+
+.feedbackSection {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background-color: #fff;
+}
+
+.feedbackCard {
+  height: 100%;
+  border-radius: 0;
+  border: 1px solid #e5e5e5;
+  box-shadow: none;
+}
+
+.feedbackCardContent {
+  padding: 24px;
+  position: relative;
+}
+
+.feedbackQuoteIcon {
+  color: #e5e5e5;
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+.feedbackQuote {
+  font-style: italic;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.feedbackName {
+  color: #666;
+  font-weight: 500;
+}
+
+.feedbackService {
+  display: block;
+  color: #999;
+  margin-top: 4px;
+}
+
 /* ========== Contact ========== */
 
 .contactSection {

@@ -51,6 +51,12 @@ const Footer: React.FC = () => {
               <Link component="button" variant="body2" onClick={() => scrollToSection('#gallery')} className="footerLink">
                 Portfolio
               </Link>
+              <Link component="button" variant="body2" onClick={() => scrollToSection('#referral')} className="footerLink">
+                Referral
+              </Link>
+              <Link component="button" variant="body2" onClick={() => scrollToSection('#feedback')} className="footerLink">
+                Feedback
+              </Link>
               <Link component="button" variant="body2" onClick={() => scrollToSection('#contact')} className="footerLink">
                 Contact
               </Link>
