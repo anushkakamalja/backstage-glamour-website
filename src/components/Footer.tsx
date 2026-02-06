@@ -6,7 +6,6 @@ import {
   Link,
   Divider,
 } from '@mui/material';
-import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
 const Footer: React.FC = () => {
@@ -33,10 +32,6 @@ const Footer: React.FC = () => {
             <Typography variant="body2" className="footerTagline">
               Transforming beauty, one client at a time. Experience the difference with our professional beauty services.
             </Typography>
-            <Box className="footerSocialWrap">
-              <FacebookIcon className="footerSocialIcon" />
-              <InstagramIcon className="footerSocialIcon" />
-            </Box>
           </Grid>
 
           <Grid size={{ xs: 12, md: 3 }}>
@@ -96,7 +91,17 @@ const Footer: React.FC = () => {
               <Link href="mailto:backstageglamour@gmail.com" variant="body2" className="footerLink" sx={{ display: 'block' }}>
                 ✉️ backstageglamour@gmail.com
               </Link>
-              <Typography variant="body2" className="footerText">🕒 Mon-Fri: 9AM-7PM</Typography>
+              <Typography variant="body2" className="footerText">🕒 By appointment.</Typography>
+              <Link
+                href="https://www.instagram.com/glambyaudra"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="body2"
+                className="footerLink"
+                sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.5, mt: 0.5 }}
+              >
+                <InstagramIcon sx={{ fontSize: 20 }} /> glambyaudra
+              </Link>
             </Box>
           </Grid>
         </Grid>
