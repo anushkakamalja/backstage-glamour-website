@@ -57,7 +57,7 @@ const Contact: React.FC = () => {
     {
       icon: <AccessTimeIcon sx={{ color: '#666' }} />,
       title: 'Hours',
-      content: 'By appointment.',
+      content: 'By appointment',
     },
   ];
 

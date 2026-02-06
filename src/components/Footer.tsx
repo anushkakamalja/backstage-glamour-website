@@ -91,7 +91,7 @@ const Footer: React.FC = () => {
               <Link href="mailto:backstageglamour@gmail.com" variant="body2" className="footerLink" sx={{ display: 'block' }}>
                 ✉️ backstageglamour@gmail.com
               </Link>
-              <Typography variant="body2" className="footerText">🕒 By appointment.</Typography>
+              <Typography variant="body2" className="footerText">🕒 By appointment</Typography>
               <Link
                 href="https://www.instagram.com/glambyaudra"
                 target="_blank"
