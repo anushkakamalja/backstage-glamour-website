@@ -46,11 +46,13 @@ const Contact: React.FC = () => {
       icon: <PhoneIcon sx={{ color: '#666' }} />,
       title: 'Phone',
       content: '(650) 425-0858',
+      link: 'tel:+16504250858',
     },
     {
       icon: <EmailIcon sx={{ color: '#666' }} />,
       title: 'Email',
       content: 'backstageglamour@gmail.com',
+      link: 'mailto:backstageglamour@gmail.com',
     },
     {
       icon: <AccessTimeIcon sx={{ color: '#666' }} />,
@@ -141,8 +143,7 @@ const Contact: React.FC = () => {
                     {info.link ? (
                       <Link
                         href={info.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        {...(info.link.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                         variant="body2"
                         color="text.secondary"
                         className="contactInfoContent"
