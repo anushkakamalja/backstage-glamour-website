@@ -19,20 +19,20 @@ const ServiceGallery: React.FC = () => {
       image: '/images/lash_ext.png' 
     },
     { 
-      title: 'Brow Lamination', 
-      image: '/images/brow_lam.jpeg' 
-    },
-    { 
       title: 'Chemical Peels', 
       image: '/images/chemical_peels.png' 
     },
     { 
-      title: 'Microcurrent Toning', 
-      image: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=800' 
+      title: 'Microcurrent Facial', 
+      image: '/images/microcurrent_facial.png' 
     },
     { 
-      title: 'Makeup Artistry', 
-      image: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&q=80&w=800' 
+      title: 'Makeup Application', 
+      image: '/images/makeup_application.png' 
+    },
+    { 
+      title: 'High Frequency Facial', 
+      image: '/images/high_frequency_facial.png' 
     },
   ];
 
