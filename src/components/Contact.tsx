@@ -34,8 +34,6 @@ const Contact: React.FC = () => {
     message: '',
   });
   const [showAlert, setShowAlert] = useState(false);
-  const [alertType, setAlertType] = useState<'success' | 'error'>('success');
-  const [submitting, setSubmitting] = useState(false);
 
   const contactInfo: ContactInfo[] = [
     {
@@ -86,7 +84,7 @@ const Contact: React.FC = () => {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!formData.name || !formData.email || !formData.service) {
@@ -94,37 +92,25 @@ const Contact: React.FC = () => {
       return;
     }
 
-    setSubmitting(true);
-    setShowAlert(false);
+    const serviceLabel = services.find((s) => s.value === formData.service)?.label ?? formData.service;
+    const subject = encodeURIComponent(`Contact from Backstage Glamour – ${formData.name}`);
+    const bodyLines = [
+      `Name: ${formData.name}`,
+      `Email: ${formData.email}`,
+      `Phone: ${formData.phone || '(not provided)'}`,
+      `Service: ${serviceLabel}`,
+      '',
+      'Message:',
+      formData.message || '(no message)',
+    ];
+    const body = encodeURIComponent(bodyLines.join('\n'));
 
-    const payload = new URLSearchParams({
-      'form-name': 'contact',
-      'bot-field': '',
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      service: formData.service,
-      message: formData.message,
-    }).toString();
+    const mailtoUrl = `mailto:backstageglamour@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = mailtoUrl;
 
-    try {
-      const res = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: payload,
-      });
-      if (!res.ok) throw new Error('Submission failed');
-      setAlertType('success');
-      setShowAlert(true);
-      setFormData({ name: '', email: '', phone: '', service: '', message: '' });
-    } catch {
-      setAlertType('error');
-      setShowAlert(true);
-    } finally {
-      setSubmitting(false);
-    }
-
-    setTimeout(() => setShowAlert(false), 5000);
+    setShowAlert(true);
+    setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+    setTimeout(() => setShowAlert(false), 6000);
   };
 
   return (
@@ -140,10 +126,8 @@ const Contact: React.FC = () => {
         </Box>
 
         {showAlert && (
-          <Alert severity={alertType} className="contactAlert">
-            {alertType === 'success'
-              ? "Thank you for your message! We'll get back to you soon."
-              : "Something went wrong. Please email us at backstageglamour@gmail.com or try again."}
+          <Alert severity="success" className="contactAlert">
+            Your email client will open with the message. Send the email to reach us—we'll get back to you soon!
           </Alert>
         )}
 
@@ -232,13 +216,8 @@ const Contact: React.FC = () => {
                     value={formData.message}
                     onChange={handleChange}
                   />
-                  <Button
-                    type="submit"
-                    variant="contained"
-                    size="large"
-                    disabled={submitting}
-                  >
-                    {submitting ? 'Sending...' : 'Send Message'}
+                  <Button type="submit" variant="contained" size="large">
+                    Send Message
                   </Button>
                 </Box>
               </CardContent>
