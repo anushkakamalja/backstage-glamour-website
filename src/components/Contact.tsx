@@ -34,6 +34,8 @@ const Contact: React.FC = () => {
     message: '',
   });
   const [showAlert, setShowAlert] = useState(false);
+  const [alertType, setAlertType] = useState<'success' | 'error'>('success');
+  const [submitting, setSubmitting] = useState(false);
 
   const contactInfo: ContactInfo[] = [
     {
@@ -84,32 +86,45 @@ const Contact: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Basic validation
     if (!formData.name || !formData.email || !formData.service) {
       alert('Please fill in all required fields.');
       return;
     }
 
-    // Simulate form submission
-    console.log('Contact form submitted:', formData);
+    setSubmitting(true);
+    setShowAlert(false);
 
-    // Show success alert
-    setShowAlert(true);
+    const payload = new URLSearchParams({
+      'form-name': 'contact',
+      'bot-field': '',
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      service: formData.service,
+      message: formData.message,
+    }).toString();
 
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      service: '',
-      message: '',
-    });
+    try {
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: payload,
+      });
+      if (!res.ok) throw new Error('Submission failed');
+      setAlertType('success');
+      setShowAlert(true);
+      setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+    } catch {
+      setAlertType('error');
+      setShowAlert(true);
+    } finally {
+      setSubmitting(false);
+    }
 
-    // Hide alert after 3 seconds
-    setTimeout(() => setShowAlert(false), 3000);
+    setTimeout(() => setShowAlert(false), 5000);
   };
 
   return (
@@ -125,8 +140,10 @@ const Contact: React.FC = () => {
         </Box>
 
         {showAlert && (
-          <Alert severity="success" className="contactAlert">
-            Thank you for your message! We'll get back to you soon.
+          <Alert severity={alertType} className="contactAlert">
+            {alertType === 'success'
+              ? "Thank you for your message! We'll get back to you soon."
+              : "Something went wrong. Please email us at backstageglamour@gmail.com or try again."}
           </Alert>
         )}
 
@@ -215,8 +232,13 @@ const Contact: React.FC = () => {
                     value={formData.message}
                     onChange={handleChange}
                   />
-                  <Button type="submit" variant="contained" size="large">
-                    Send Message
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    size="large"
+                    disabled={submitting}
+                  >
+                    {submitting ? 'Sending...' : 'Send Message'}
                   </Button>
                 </Box>
               </CardContent>
