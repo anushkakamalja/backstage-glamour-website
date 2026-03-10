@@ -25,8 +25,7 @@ const Hero: React.FC = () => {
             className="heroLogo"
           />
           <Typography variant="h6" component="p" className="heroTagline">
-            Experience luxury beauty treatments in a serene, professional environment.
-            Our expert stylists use premium products to enhance your natural beauty.
+          Step into Backstage Glamour, where expert artistry meets effortless luxury. Polished, radiant looks crafted to make you shine—backstage style
           </Typography>
           <Box className="heroButtons">
             <Button
