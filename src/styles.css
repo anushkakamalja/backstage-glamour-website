@@ -175,6 +175,13 @@
   font-weight: 700;
 }
 
+.aboutDivider {
+  margin-top: 64px;
+  margin-bottom: 48px;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 48px;
+}
+
 /* ========== Service Menu ========== */
 
 .menuSection {
@@ -306,7 +313,60 @@
   background-color: #fff;
 }
 
+.feedbackContainer {
+  position: relative;
+}
+
+.feedbackScrollWrap {
+  position: relative;
+}
+
+.feedbackScroll {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 8px 0;
+}
+
+.feedbackDots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.feedbackDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid #999;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.feedbackDot:hover {
+  background-color: #e0e0e0;
+  border-color: #333;
+}
+
+.feedbackDotActive {
+  background-color: #000;
+  border-color: #000;
+}
+
+.feedbackScroll::-webkit-scrollbar {
+  display: none;
+}
+
 .feedbackCard {
+  flex: 0 0 320px;
+  min-width: 320px;
   height: 100%;
   border-radius: 0;
   border: 1px solid #e5e5e5;
