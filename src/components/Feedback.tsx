@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { Box, Typography, Card, CardContent } from '@mui/material';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 
@@ -39,12 +39,12 @@ const Feedback: React.FC = () => {
     },
   ];
 
-  const scrollToIndex = (index: number) => {
+  const scrollToIndex = useCallback((index: number) => {
     if (!scrollRef.current) return;
     const i = Math.max(0, Math.min(index, testimonials.length - 1));
     scrollRef.current.scrollTo({ left: i * CARD_STEP, behavior: 'smooth' });
     setActiveIndex(i);
-  };
+  }, [testimonials.length]);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -66,7 +66,7 @@ const Feedback: React.FC = () => {
       });
     }, 5000);
     return () => clearInterval(interval);
-  }, [testimonials.length]);
+  }, [scrollToIndex, testimonials.length]);
 
   return (
     <Box id="feedback" className="feedbackSection">
