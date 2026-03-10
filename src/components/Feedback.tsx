@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box, Typography, Grid, Card, CardContent } from '@mui/material';
+import React, { useRef, useEffect, useState } from 'react';
+import { Box, Typography, Card, CardContent } from '@mui/material';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 
 interface Testimonial {
@@ -8,28 +8,69 @@ interface Testimonial {
   service?: string;
 }
 
+const CARD_WIDTH = 320;
+const GAP = 24;
+const CARD_STEP = CARD_WIDTH + GAP;
+
 const Feedback: React.FC = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
   const testimonials: Testimonial[] = [
     {
       quote: 'Audra is incredibly talented and made me feel so comfortable. My lashes looked amazing and natural.',
-      name: '— Client',
+      name: '- Amy',
       service: 'Lash Extensions',
     },
     {
       quote: 'The best brow lamination I\'ve ever had. I get so many compliments!',
-      name: '— Client',
+      name: '- Mariel',
       service: 'Brow Lamination & Tint',
     },
     {
       quote: 'Professional, relaxing, and my skin has never looked better. Can\'t recommend enough.',
-      name: '— Client',
+      name: '- Rachel',
       service: 'Classic Facial',
+    },
+    {
+      quote: 'Such a wonderful experience from start to finish. I felt pampered and left looking and feeling my best.',
+      name: '- Danielle',
+      service: 'Makeup Application',
     },
   ];
 
+  const scrollToIndex = (index: number) => {
+    if (!scrollRef.current) return;
+    const i = Math.max(0, Math.min(index, testimonials.length - 1));
+    scrollRef.current.scrollTo({ left: i * CARD_STEP, behavior: 'smooth' });
+    setActiveIndex(i);
+  };
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const onScroll = () => {
+      const i = Math.round(el.scrollLeft / CARD_STEP);
+      setActiveIndex(Math.min(i, testimonials.length - 1));
+    };
+    el.addEventListener('scroll', onScroll);
+    return () => el.removeEventListener('scroll', onScroll);
+  }, [testimonials.length]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => {
+        const next = prev >= testimonials.length - 1 ? 0 : prev + 1;
+        scrollToIndex(next);
+        return next;
+      });
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
+
   return (
     <Box id="feedback" className="feedbackSection">
-      <Box className="container">
+      <Box className="container feedbackContainer">
         <Box className="sectionHeader">
           <Typography variant="overline" className="sectionLabel">
             Testimonials
@@ -39,10 +80,10 @@ const Feedback: React.FC = () => {
           </Typography>
         </Box>
 
-        <Grid container spacing={4}>
-          {testimonials.map((item, index) => (
-            <Grid size={{ xs: 12, md: 4 }} key={index}>
-              <Card className="feedbackCard">
+        <Box className="feedbackScrollWrap">
+          <Box ref={scrollRef} className="feedbackScroll">
+            {testimonials.map((item, index) => (
+              <Card key={index} className="feedbackCard">
                 <CardContent className="feedbackCardContent">
                   <FormatQuoteIcon className="feedbackQuoteIcon" />
                   <Typography variant="body1" className="feedbackQuote">
@@ -58,9 +99,20 @@ const Feedback: React.FC = () => {
                   )}
                 </CardContent>
               </Card>
-            </Grid>
-          ))}
-        </Grid>
+            ))}
+          </Box>
+          <Box className="feedbackDots">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                aria-label={`Go to testimonial ${index + 1}`}
+                className={`feedbackDot ${index === activeIndex ? 'feedbackDotActive' : ''}`}
+                onClick={() => scrollToIndex(index)}
+              />
+            ))}
+          </Box>
+        </Box>
       </Box>
     </Box>
   );
